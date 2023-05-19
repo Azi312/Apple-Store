@@ -1,4 +1,4 @@
-export type CartItem = {
+export type CartProducts = {
 	_id: string
 	name: string
 	price: number
@@ -9,5 +9,5 @@ export type CartItem = {
 
 export interface CartSliceState {
 	totalPrice: number
-	items: CartItem[]
+	products: CartProducts[]
 }

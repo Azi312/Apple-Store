@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { selectCartItems } from '../redux/cart/selectors'
+import { selectCartProducts } from '../redux/cart/selectors'
 import { setOpenModal } from '../redux/filter/slice'
 import { removeUser } from '../redux/user/userSlice'
 
@@ -11,12 +11,12 @@ import { useAuth } from '../hooks/use-auth'
 import Search from './Search'
 
 const Header = () => {
-	const { items } = useSelector(selectCartItems)
+	const { products } = useSelector(selectCartProducts)
 	const dispatch = useDispatch()
 	const { isAuth } = useAuth()
 
 	const isMounted = React.useRef(false)
-	const totalCount = items.reduce(
+	const totalCount = products.reduce(
 		(sum: number, item: any) => sum + item.count,
 		0
 	)
@@ -28,11 +28,11 @@ const Header = () => {
 
 	useEffect(() => {
 		if (isMounted.current) {
-			const json = JSON.stringify(items)
+			const json = JSON.stringify(products)
 			localStorage.setItem('cart', json)
 		}
 		isMounted.current = true
-	}, [items])
+	}, [products])
 
 	return (
 		<header className='header'>
@@ -64,7 +64,7 @@ const Header = () => {
 								<h3>
 									<span
 										style={
-											items.length > 9 ? { right: '16%' } : { right: '30%' }
+											products.length > 9 ? { right: '16%' } : { right: '30%' }
 										}
 									>
 										{totalCount}

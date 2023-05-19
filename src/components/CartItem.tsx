@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addItem, minusItem } from '../redux/cart/slice'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
-import { CartItem as CartItemType } from '../redux/cart/types'
+import { CartProducts as CartItemType } from '../redux/cart/types'
 
 type CartItemProps = {
 	_id: string

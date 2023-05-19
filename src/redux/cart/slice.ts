@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { calcTotalPrice } from '../../utils/calcTotalPrice'
 import { getCartFromLS } from '../../utils/getCartFromLS'
-import { CartItem, CartSliceState } from './types'
-
-// const { items, totalPrice } = getCartFromLS()
+import { CartProducts, CartSliceState } from './types'
 
 const initialState: CartSliceState = getCartFromLS()
 
@@ -11,8 +8,8 @@ export const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		addItem(state, action: PayloadAction<CartItem>) {
-			const findItem = state.items.find(
+		addItem(state, action: PayloadAction<CartProducts>) {
+			const findItem = state.products.find(
 				obj =>
 					obj._id === action.payload._id &&
 					obj.memory.value === action.payload.memory.value &&
@@ -22,19 +19,19 @@ export const cartSlice = createSlice({
 			if (findItem) {
 				findItem.count++
 			} else {
-				state.items.push({
+				state.products.push({
 					...action.payload,
 					count: 1,
 				})
 			}
 
-			state.totalPrice = state.items.reduce((sum, obj) => {
+			state.totalPrice = state.products.reduce((sum, obj) => {
 				return obj.memory.price * obj.count + sum
 			}, 0)
 		},
 
 		minusItem(state, action) {
-			const findItem = state.items.find(
+			const findItem = state.products.find(
 				obj =>
 					obj._id === action.payload._id &&
 					obj.memory.value === action.payload.memory.value &&
@@ -45,7 +42,7 @@ export const cartSlice = createSlice({
 				findItem.count--
 
 				if (findItem.count === 0) {
-					state.items = state.items.filter(
+					state.products = state.products.filter(
 						obj =>
 							obj._id !== action.payload._id ||
 							obj.memory.value !== action.payload.memory.value ||
@@ -53,7 +50,7 @@ export const cartSlice = createSlice({
 					) // Удаляем товар из корзины
 				}
 
-				state.totalPrice = state.items.reduce((sum, obj) => {
+				state.totalPrice = state.products.reduce((sum, obj) => {
 					return obj.memory.price * obj.count - sum
 				}, 0)
 			}

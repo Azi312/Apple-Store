@@ -1,17 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CartEmpty from '../components/CartEmpty'
 import CartItem from '../components/CartItem'
 import { useAuth } from '../hooks/use-auth'
-import { selectCartItems } from '../redux/cart/selectors'
+import { selectCartProducts } from '../redux/cart/selectors'
 
 const Cart: React.FC = () => {
-	const { items, totalPrice } = useSelector(selectCartItems)
+	const { products, totalPrice } = useSelector(selectCartProducts)
 	const { isAuth } = useAuth()
 
 	const totalAmount = totalPrice + 5
 
-	if (items.length === 0) {
+	if (products.length === 0) {
 		return <CartEmpty />
 	}
 
@@ -22,7 +22,7 @@ const Cart: React.FC = () => {
 					<div className='cart__content'>
 						<h1 className='cart__title'>Cart</h1>
 						<div className='cart__list'>
-							{items.map(item => (
+							{products.map(item => (
 								<CartItem key={item._id} {...item} />
 							))}
 						</div>

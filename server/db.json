@@ -5,7 +5,6 @@
 			"name": "iPhone 14Pro",
 			"category": 1,
 			"price": 999,
-			"discount": 20,
 			"rating": 4.9,
 			"memory": [
 				{
@@ -100,7 +99,6 @@
 			"name": "iPhone 14",
 			"category": 1,
 			"price": 799,
-			"discount": 16,
 			"rating": 4.8,
 			"memory": [
 				{
@@ -200,7 +198,6 @@
 			"name": "Apple Watch Ultra",
 			"category": 3,
 			"price": 799,
-			"discount": 16,
 			"rating": 4.9,
 			"memory": [{ "size": 49, "price": 799 }],
 			"info": [
@@ -268,7 +265,6 @@
 			"name": "Apple Watch SE",
 			"category": 3,
 			"price": 249,
-			"discount": 16,
 			"rating": 4.5,
 			"memory": [
 				{ "size": 40, "price": 249 },
@@ -339,7 +335,6 @@
 			"name": "MacBook Pro 14",
 			"category": 2,
 			"price": 2499,
-			"discount": 16,
 			"rating": 4.4,
 			"memory": [
 				{
@@ -413,7 +408,6 @@
 			"name": "MacBook Pro 13",
 			"category": 2,
 			"price": 1299,
-			"discount": 16,
 			"rating": 4.3,
 			"memory": [
 				{
@@ -484,7 +478,6 @@
 			"name": "iPad Pro 11",
 			"category": 4,
 			"price": 799,
-			"discount": 16,
 			"rating": 4.7,
 			"memory": [
 				{
@@ -564,7 +557,6 @@
 			"name": "iPad Air",
 			"category": 4,
 			"price": 599,
-			"discount": 16,
 			"rating": 4.9,
 			"memory": [
 				{
