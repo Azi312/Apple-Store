@@ -7,7 +7,6 @@ import { selectCartItems } from '../redux/cart/selectors'
 
 const Cart: React.FC = () => {
 	const { items, totalPrice } = useSelector(selectCartItems)
-	const dispatch = useDispatch()
 	const { isAuth } = useAuth()
 
 	const totalAmount = totalPrice + 5
